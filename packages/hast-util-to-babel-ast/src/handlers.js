@@ -1,4 +1,5 @@
 import * as t from '@babel/types'
+import { decodeXML } from 'entities'
 import all from './all'
 import getAttributes from './getAttributes'
 import { ELEMENT_TAG_NAME_MAPPING } from './mappings'
@@ -24,7 +25,7 @@ export const text = (h, node, parent) => {
     return null
   }
 
-  return t.jsxExpressionContainer(t.stringLiteral(node.value))
+  return t.jsxExpressionContainer(t.stringLiteral(decodeXML(node.value)))
 }
 
 export const element = (h, node, parent) => {
