@@ -12,7 +12,7 @@ All work on SVGR happens directly on [GitHub](/). Both core team members and ext
 
 ### Online one click Setup
 
-You can use Gitpod(An Online Open Source VS Code like IDE which is free for Open Source) for contributing online. With a single click it will start a workspace and automatically: 
+You can use Gitpod(An Online Open Source VS Code like IDE which is free for Open Source) for contributing online. With a single click it will start a workspace and automatically:
 
 - clone the `svgr` repo.
 - install all the dependencies in `/` and `/website`.
