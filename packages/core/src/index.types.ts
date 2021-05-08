@@ -9,7 +9,7 @@ const svgCode = `
 `
 
 svgr(svgCode)
-svgr(svgCode, { icon: true }, { componentName: 'MyComponent' })
+svgr(svgCode, { icon: false }, { componentName: 'MyComponent' })
 svgr(svgCode, { icon: false, memo: true })
 svgr(svgCode, undefined, { componentName: 'MyComponent' })
-svgr.sync(svgCode, { replaceAttrValues: { '#ccc': 'currentColor' } })
+svgr.sync(svgCode, { replaceAttrValues: { '#000': '{props.color}' } })
