@@ -18,6 +18,7 @@
   "engines": {
     "node": ">=10"
   },
+  "types": "src",
   "homepage": "https://react-svgr.com",
   "funding": {
     "type": "github",
