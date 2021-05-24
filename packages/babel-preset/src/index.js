@@ -58,14 +58,16 @@ const plugin = (api, opts) => {
   }
 
   if (opts.expandProps) {
-    toAddAttributes = [
-      ...toAddAttributes,
-      {
-        name: 'props',
-        spread: true,
-        position: opts.expandProps,
-      },
-    ]
+    if(opts.expandProps === "start" || opts.expandProps === "end"){
+      toAddAttributes = [
+        ...toAddAttributes,
+        {
+          name: 'props',
+          spread: true,
+          position: opts.expandProps,
+        },
+      ]
+    }
   }
 
   if (!opts.dimensions) {
