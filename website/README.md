@@ -1,6 +1,6 @@
 # SVGR documentation website
 
-[Documentation site](https://react-svgr.com) for [svgr](https://github.com/gregberge/svgr). `svgr-docs` is running on [gatsbyjs](gatsbyjs.org).
+[Documentation site](https://react-svgr.com) for [svgr](https://github.com/gregberge/svgr). `svgr-docs` is running on [gatsbyjs](https://gatsbyjs.org).
 
 ## Getting Started
 
