@@ -108,20 +108,20 @@ By default, `@svgr/webpack` includes a `babel-loader` with [an optimized configu
 
 ### Handle SVG in CSS, Sass or Less
 
-It is possible to detect the module that requires your SVG using [`Rule.issuer`](https://webpack.js.org/configuration/module/#rule-issuer) in Webpack. Using it you can specify two different configurations for JavaScript and the rest of your files.
+It is possible to detect the module that requires your SVG using [`Rule.issuer`](https://webpack.js.org/configuration/module/#ruleissuer) in Webpack 5. Using it you can specify two different configurations for JavaScript and the rest of your files.
 
 ```js
-{
+[
   {
     test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-    issuer: {
-      test: /\.jsx?$/
-    },
+    issuer: /\.[jt]sx?$/,
     use: ['babel-loader', '@svgr/webpack', 'url-loader']
   },
   {
     test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
     loader: 'url-loader'
   },
-}
+]
 ```
+
+_[Rule.issuer](https://v4.webpack.js.org/configuration/module/#ruleissuer) in Webpack 4 has additional conditions which are not available in Webpack 5._
