@@ -1,1 +1,1 @@
-{"plugins": [{"removeTitle": false}]}
+{"plugins": [{"name": "removeTitle", "active": false}]}

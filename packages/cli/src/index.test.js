@@ -100,7 +100,7 @@ describe('cli', () => {
 
   it('should support --svgo-config as json', async () => {
     const result = await cli(
-      `--svgo-config '{"plugins": [{"removeTitle": false}]}' __fixtures__/simple/file.svg`,
+      `--svgo-config '{"plugins": [{"name": "removeTitle", "active": false}]}' __fixtures__/simple/file.svg`,
     )
     expect(result).toMatchSnapshot()
   }, 10000)

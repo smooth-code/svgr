@@ -15,7 +15,7 @@ function SvgIcon() {
     fillRule: \\"evenodd\\",
     strokeLinecap: \\"square\\"
   }, /*#__PURE__*/React.createElement(\\"path\\", {
-    d: \\"M51 37L37 51M51 51L37 37\\"
+    d: \\"M51 37 37 51M51 51 37 37\\"
   })));
 }
 
@@ -36,7 +36,7 @@ var _ref = /*#__PURE__*/React.createElement(\\"svg\\", {
   fillRule: \\"evenodd\\",
   strokeLinecap: \\"square\\"
 }, /*#__PURE__*/React.createElement(\\"path\\", {
-  d: \\"M51 37L37 51M51 51L37 37\\"
+  d: \\"M51 37 37 51M51 51 37 37\\"
 })));
 
 function SvgIcon() {
@@ -60,7 +60,7 @@ var _ref = /*#__PURE__*/React.createElement(\\"svg\\", {
   fillRule: \\"evenodd\\",
   strokeLinecap: \\"square\\"
 }, /*#__PURE__*/React.createElement(\\"path\\", {
-  d: \\"M51 37L37 51M51 51L37 37\\"
+  d: \\"M51 37 37 51M51 51 37 37\\"
 })));
 
 function SvgIcon() {

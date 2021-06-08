@@ -1,2 +1,3 @@
 plugins:
-  - removeTitle: false
+  - name: removeTitle
+    active: false

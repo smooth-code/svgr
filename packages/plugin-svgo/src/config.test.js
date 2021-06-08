@@ -17,24 +17,24 @@ describe('svgo config', () => {
   describe('#getBaseSvgoConfig', () => {
     describe('with no specific config', () => {
       it('returns config with `prefixIds: true`', () => {
-        expect(getBaseSvgoConfig({})).toEqual({
-          plugins: [{ prefixIds: true }],
+        expect(getBaseSvgoConfig({ full: true })).toEqual({
+          plugins: [{ name: 'prefixIds', active: true }],
         })
       })
     })
 
     describe('with `config.icons` enabled', () => {
       it('returns config with `removeViewBox: false`', () => {
-        expect(getBaseSvgoConfig({ icon: true })).toEqual({
-          plugins: [{ prefixIds: true }, { removeViewBox: false }],
+        expect(getBaseSvgoConfig({ icon: true, full: true })).toEqual({
+          plugins: [{ name: 'prefixIds', active: true }, { name: 'removeViewBox', active: false }],
         })
       })
     })
 
     describe('with `config.dimensions` disabled', () => {
       it('returns config with `removeViewBox: false`', () => {
-        expect(getBaseSvgoConfig({ dimensions: false })).toEqual({
-          plugins: [{ prefixIds: true }, { removeViewBox: false }],
+        expect(getBaseSvgoConfig({ dimensions: false, full: true })).toEqual({
+          plugins: [{ name: 'prefixIds', active: true }, { name: 'removeViewBox', active: false }],
         })
       })
     })
@@ -47,38 +47,40 @@ describe('svgo config', () => {
         plugins: [],
       })
       expect(
-        mergeSvgoConfig({ plugins: { removeViewBox: false } }, null),
+        mergeSvgoConfig({ plugins: { name: 'removeViewBox', active: false } }, null),
       ).toEqual({
-        plugins: [{ removeViewBox: false }],
+        plugins: [{ name: 'removeViewBox', active: false }],
       })
       expect(
-        mergeSvgoConfig({ plugins: { removeViewBox: false } }, {}),
+        mergeSvgoConfig({ plugins: { name: 'removeViewBox', active: false } }, {}),
       ).toEqual({
-        plugins: [{ removeViewBox: false }],
+        plugins: [{ name: 'removeViewBox', active: false }],
       })
-      expect(mergeSvgoConfig({ plugins: { removeViewBox: false } })).toEqual({
-        plugins: [{ removeViewBox: false }],
+      expect(mergeSvgoConfig({ plugins: { name: 'removeViewBox', active: false } })).toEqual({
+        plugins: [{ name: 'removeViewBox', active: false }],
       })
-      expect(mergeSvgoConfig({ plugins: [{ removeViewBox: false }] })).toEqual({
-        plugins: [{ removeViewBox: false }],
+      expect(mergeSvgoConfig({ plugins: [{ name: 'removeViewBox', active: false }] })).toEqual({
+        plugins: [{ name: 'removeViewBox', active: false }],
       })
       expect(
         mergeSvgoConfig({
-          plugins: [{ removeViewBox: false }, { removeViewBox: true }],
+          plugins: [{ name: 'removeViewBox', active: false }, { name: 'removeViewBox', active: true }],
         }),
       ).toEqual({
-        plugins: [{ removeViewBox: true }],
+        plugins: [{ name: 'removeViewBox', active: true }],
       })
       expect(
         mergeSvgoConfig({
           plugins: [
             {
-              convertColors: {
+              name: 'convertColors',
+              params: {
                 currentColor: true,
               },
             },
             {
-              prefixIds: {
+              name: 'prefixIds',
+              params: {
                 prefix: 'foo',
               },
             },
@@ -87,12 +89,14 @@ describe('svgo config', () => {
       ).toEqual({
         plugins: [
           {
-            convertColors: {
+            name: 'convertColors',
+            params: {
               currentColor: true,
             },
           },
           {
-            prefixIds: {
+            name: 'prefixIds',
+            params: {
               prefix: 'foo',
             },
           },
@@ -103,16 +107,14 @@ describe('svgo config', () => {
           {
             plugins: [
               {
-                prefixIds: {
+                name: 'prefixIds',
+                params: {
                   prefix: 'foo',
                 },
               },
-            ],
-          },
-          {
-            plugins: [
               {
-                prefixIds: {
+                name: 'prefixIds',
+                params: {
                   prefix: 'bar',
                 },
               },
@@ -122,7 +124,8 @@ describe('svgo config', () => {
       ).toEqual({
         plugins: [
           {
-            prefixIds: {
+            name: 'prefixIds',
+            params: {
               prefix: 'bar',
             },
           },

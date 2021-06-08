@@ -22,7 +22,14 @@ Object {
   "runtimeConfig": true,
   "svgProps": null,
   "svgo": true,
-  "svgoConfig": null,
+  "svgoConfig": Object {
+    "plugins": Array [
+      Object {
+        "active": true,
+        "name": "convertStyleToAttrs",
+      },
+    ],
+  },
   "template": null,
   "titleProp": false,
   "typescript": false,
@@ -51,7 +58,14 @@ Object {
   "runtimeConfig": true,
   "svgProps": null,
   "svgo": true,
-  "svgoConfig": null,
+  "svgoConfig": Object {
+    "plugins": Array [
+      Object {
+        "active": true,
+        "name": "convertStyleToAttrs",
+      },
+    ],
+  },
   "template": null,
   "titleProp": false,
   "typescript": false,
@@ -75,7 +89,14 @@ Object {
   "runtimeConfig": true,
   "svgProps": null,
   "svgo": true,
-  "svgoConfig": null,
+  "svgoConfig": Object {
+    "plugins": Array [
+      Object {
+        "active": true,
+        "name": "convertStyleToAttrs",
+      },
+    ],
+  },
   "template": null,
   "titleProp": false,
   "typescript": false,
@@ -104,7 +125,14 @@ Object {
   "runtimeConfig": true,
   "svgProps": null,
   "svgo": true,
-  "svgoConfig": null,
+  "svgoConfig": Object {
+    "plugins": Array [
+      Object {
+        "active": true,
+        "name": "convertStyleToAttrs",
+      },
+    ],
+  },
   "template": null,
   "titleProp": false,
   "typescript": false,
@@ -133,7 +161,14 @@ Object {
   "runtimeConfig": true,
   "svgProps": null,
   "svgo": true,
-  "svgoConfig": null,
+  "svgoConfig": Object {
+    "plugins": Array [
+      Object {
+        "active": true,
+        "name": "convertStyleToAttrs",
+      },
+    ],
+  },
   "template": null,
   "titleProp": false,
   "typescript": false,
@@ -162,7 +197,14 @@ Object {
   "runtimeConfig": true,
   "svgProps": null,
   "svgo": true,
-  "svgoConfig": null,
+  "svgoConfig": Object {
+    "plugins": Array [
+      Object {
+        "active": true,
+        "name": "convertStyleToAttrs",
+      },
+    ],
+  },
   "template": null,
   "titleProp": false,
   "typescript": false,
@@ -186,7 +228,14 @@ Object {
   "runtimeConfig": true,
   "svgProps": null,
   "svgo": true,
-  "svgoConfig": null,
+  "svgoConfig": Object {
+    "plugins": Array [
+      Object {
+        "active": true,
+        "name": "convertStyleToAttrs",
+      },
+    ],
+  },
   "template": null,
   "titleProp": false,
   "typescript": false,
@@ -215,7 +264,14 @@ Object {
   "runtimeConfig": true,
   "svgProps": null,
   "svgo": true,
-  "svgoConfig": null,
+  "svgoConfig": Object {
+    "plugins": Array [
+      Object {
+        "active": true,
+        "name": "convertStyleToAttrs",
+      },
+    ],
+  },
   "template": null,
   "titleProp": false,
   "typescript": false,

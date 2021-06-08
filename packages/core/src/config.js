@@ -13,7 +13,7 @@ export const DEFAULT_CONFIG = {
   replaceAttrValues: null,
   svgProps: null,
   svgo: true,
-  svgoConfig: null,
+  svgoConfig: { plugins: [{ name: 'convertStyleToAttrs', active: true }]},
   template: null,
   titleProp: false,
   runtimeConfig: true,

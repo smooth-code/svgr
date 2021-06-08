@@ -1,3 +1,4 @@
+import { extendDefaultPlugins } from 'svgo';
 import deepmerge from 'deepmerge'
 
 export function getFilePath(state) {
@@ -6,12 +7,15 @@ export function getFilePath(state) {
 
 export function getBaseSvgoConfig(config) {
   const baseSvgoConfig = {
-    plugins: [{ prefixIds: true }],
+    plugins: [{ name: 'prefixIds', active: true }],
   }
   if (config.icon || config.dimensions === false) {
-    baseSvgoConfig.plugins.push({ removeViewBox: false })
+    baseSvgoConfig.plugins.push({ name: 'removeViewBox', active: false })
   }
-  return baseSvgoConfig
+
+  return {
+      plugins: config.full ? baseSvgoConfig.plugins : extendDefaultPlugins(baseSvgoConfig.plugins)
+  }
 }
 
 export function getPlugins(config) {
@@ -32,14 +36,18 @@ function extractPlugins(config) {
 }
 
 function mergePlugins(configs) {
-  const plugins = configs.reduce(
-    (merged, config) => deepmerge.all([merged, ...extractPlugins(config)]),
-    {},
-  )
-  return Object.keys(plugins).reduce((array, key) => {
-    array.push({ [key]: plugins[key] })
-    return array
-  }, [])
+  return configs
+      .flatMap(extractPlugins)
+      .reduce((plugins, plugin) => {
+        const index = plugins.findIndex(accPlugin => accPlugin.name === plugin.name);
+        if (index > -1) {
+          plugins[index] = deepmerge(plugins[index], plugin)
+        } else {
+          plugins = [...plugins, plugin];
+        }
+
+        return plugins;
+      }, []);
 }
 
 export function mergeSvgoConfig(...configs) {

@@ -30,7 +30,7 @@ describe('svgo', () => {
       {
         svgo: true,
         runtimeConfig: true,
-        svgoConfig: { plugins: [{ removeDesc: false }] },
+        svgoConfig: { plugins: [{ name: 'removeDesc', active: false }] },
       },
       {},
     )
@@ -59,7 +59,7 @@ describe('svgo', () => {
         svgo: true,
         icon: true,
         runtimeConfig: true,
-        svgoConfig: { plugins: [{ removeDesc: false }] },
+        svgoConfig: { plugins: [{ name: 'removeDesc', active: false }] },
       },
       {},
     )
@@ -114,7 +114,7 @@ describe('svgo', () => {
         svgo: true,
         icon: true,
         runtimeConfig: true,
-        svgoConfig: { plugins: [{ prefixIds: false }] },
+        svgoConfig: { plugins: [{ name: 'prefixIds', active: false }] },
       },
       { filePath: path.join(__dirname, '../__fixtures__/svgo') },
     )
@@ -129,10 +129,10 @@ describe('svgo', () => {
         svgo: true,
         icon: true,
         runtimeConfig: true,
+        full: true,
         svgoConfig: {
-          full: true,
           plugins: [
-            { prefixIds: { prefixIds: true, prefixClassNames: false } },
+            { name: 'prefixIds', params: { prefixIds: true, prefixClassNames: false } },
           ],
         },
       },
