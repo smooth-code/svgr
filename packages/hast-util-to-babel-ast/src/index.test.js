@@ -69,4 +69,18 @@ describe('hast-util-to-babel-ast', () => {
 
     expect(transform(code)).toMatchSnapshot()
   })
+
+  it('string literals children of text nodes should have decoded XML entities', () => {
+    const code = `<svg><text>&lt;</text></svg>`
+    expect(transform(code)).toMatchInlineSnapshot(
+      `"<svg><text>{\\"<\\"}</text></svg>;"`,
+    )
+  })
+
+  it('string literals children of tspan nodes should have decoded XML entities', () => {
+    const code = `<svg><text><tspan>&lt;</tspan></text></svg>`
+    expect(transform(code)).toMatchInlineSnapshot(
+      `"<svg><text><tspan>{\\"<\\"}</tspan></text></svg>;"`,
+    )
+  })
 })
