@@ -105,7 +105,7 @@ By default, `@svgr/webpack` includes a `babel-loader` with [an optimized configu
 It is possible to detect the module that requires your SVG using [`Rule.issuer`](https://webpack.js.org/configuration/module/#rule-issuer) in Webpack. Using it you can specify two different configurations for JavaScript and the rest of your files.
 
 ```js
-;[
+[
   {
     test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
     issuer: {
