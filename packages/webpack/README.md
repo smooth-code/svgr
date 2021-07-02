@@ -109,13 +109,13 @@ It is possible to detect the module that requires your SVG using [`Rule.issuer`]
   {
     test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
     issuer: {
-      test: /\.jsx?$/
+      test: /\.jsx?$/,
     },
-    use: ['babel-loader', '@svgr/webpack', 'url-loader']
+    use: ['babel-loader', '@svgr/webpack', 'url-loader'],
   },
   {
     test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-    loader: 'url-loader'
+    loader: 'url-loader',
   },
 ]
 ```

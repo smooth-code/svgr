@@ -137,8 +137,14 @@ export const getProps = ({ types: t }, opts) => {
           typeParameters([
             opts.native
               ? genericTypeAnnotation(
-                  qualifiedTypeIdentifier(t.identifier('React'), t.identifier('Component')),
-                  typeParameters([genericTypeAnnotation(t.identifier('SvgProps'))]))
+                  qualifiedTypeIdentifier(
+                    t.identifier('React'),
+                    t.identifier('Component'),
+                  ),
+                  typeParameters([
+                    genericTypeAnnotation(t.identifier('SvgProps')),
+                  ]),
+                )
               : genericTypeAnnotation(t.identifier('SVGSVGElement')),
           ]),
         ),
@@ -182,15 +188,14 @@ export const getImport = ({ types: t }, opts) => {
     if (opts.native.expo) {
       importDeclarations.push(t.importDeclaration([], t.stringLiteral('expo')))
     } else {
-      const imports = [t.importDefaultSpecifier(t.identifier('Svg'))];
+      const imports = [t.importDefaultSpecifier(t.identifier('Svg'))]
       if (opts.typescript && opts.expandProps) {
-        imports.push(t.importSpecifier(t.identifier('SvgProps'), t.identifier('SvgProps')));
+        imports.push(
+          t.importSpecifier(t.identifier('SvgProps'), t.identifier('SvgProps')),
+        )
       }
       importDeclarations.push(
-        t.importDeclaration(
-          imports,
-          t.stringLiteral('react-native-svg'),
-        ),
+        t.importDeclaration(imports, t.stringLiteral('react-native-svg')),
       )
     }
   }
