@@ -5,6 +5,7 @@ import svgo from '@svgr/plugin-svgo'
 import jsx from '@svgr/plugin-jsx'
 import presetReact from '@babel/preset-react'
 import presetEnv from '@babel/preset-env'
+import presetTS from '@babel/preset-typescript'
 import pluginTransformReactConstantElements from '@babel/plugin-transform-react-constant-elements'
 
 const babelOptions = {
@@ -50,6 +51,17 @@ function svgrLoader(source) {
       filePath: this.resourcePath,
     })
       .then((jsCode) => {
+        if (options.typescript) {
+          babelOptions.presets.push(
+            createConfigItem(
+              [
+                presetTS,
+                { allowNamespaces: true, allExtensions: true, isTSX: true },
+              ],
+              { type: 'preset' },
+            ),
+          )
+        }
         if (!babel) return jsCode
         return transformAsync(jsCode, babelOptions).then(({ code }) => code)
       })

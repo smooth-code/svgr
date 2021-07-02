@@ -34,6 +34,42 @@ function compile(rules) {
 }
 
 describe('webpack loader', () => {
+  it('should convert file (typescript: true)', async () => {
+    const source = await compile([
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: path.resolve(__dirname, './index.js'),
+            options: {
+              typescript: true,
+            },
+          },
+        ],
+      },
+    ])
+
+    expect(source).toMatchSnapshot()
+  }, 15000)
+
+  it('should convert file', async () => {
+    const source = await compile([
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: path.resolve(__dirname, './index.js'),
+            options: {
+              expandProps: false,
+            },
+          },
+        ],
+      },
+    ])
+
+    expect(source).toMatchSnapshot()
+  }, 15000)
+
   it('should convert file', async () => {
     const source = await compile([
       {
